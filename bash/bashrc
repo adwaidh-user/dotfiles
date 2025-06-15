@@ -1,0 +1,120 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+# Variables
+user=$USER
+hostname=$HOSTNAME
+
+#### Aliases ###########################
+
+# common commands
+alias ..='cd ..'
+alias ls=lsd
+alias ll='ls -lFh'
+alias lm='ls | more'
+alias la='ls -alFh --group-directories-first'
+alias lsn='ls | cat -n'
+alias mkdir='mkdir -pv'
+alias cp='cp --preserve=all -v'
+alias cpr='cp --preserve=all -Rv'
+alias count='find . -type f -not -path "*/\.*" | wc -l'
+alias count-all='find . -type f | wc -l'
+alias fbig="find . -size +128M -type f -printf '%s %p\n'| sort -nr | head -16"
+alias n='exec bash'
+alias c='clear'
+alias q='exit'
+
+# system
+alias cputemp='sensors | grep Core'
+alias batteryreport='upower --monitor-detail'
+alias poweroff='systemctl poweroff'
+alias reboot='systemctl reboot'
+alias df='duf'
+
+# application shortcuts
+alias cat=bat
+alias myip='curl -s -m 5 https://ipleak.net/json/'
+alias edit-nvim='nvim ~/.config/nvim'
+alias edit-bash='nvim ~/.bashrc'
+alias edit-kitty='nvim ~/.config/kitty/kitty.conf'
+alias edit-git='git config --global --edit'
+alias so-bash='source ~/.bashrc'
+alias timenow='date +"%T"'
+alias datenow='date +"%d-%m-%Y"'
+nohup() {
+	mkdir -p ~/nohup_log
+	logfile=~/nohup_log/nohup_$(date +%Y-%m-%d).log
+	command nohup "$@" >> "$logfile" 2>&1 &
+}
+
+# web
+alias whatsap='nohup firefox https://web.whatsapp.com/'
+alias chatGPT='nohup firefox https://chatgpt.com/'
+alias claude-ai='nohup firefox https://claude.ai/'
+alias perplexity='nohup firefox https://www.perplexity.ai/'
+
+# Personal
+alias clg='cd ~/Programming/College-Assignments/'
+
+#PS1='\[\e[1;31m\][\[\e[32m\]\u\[\e[31m\]@\[\e[32m\]\h \[\e[36m\]\W\[\e[31m\]]\$ \[\e[0m\]'
+#### Prompt ###########################
+sym="㉿" #symbol of prompt
+bar_cr="34" #color of bars
+sym_cr="31" #color of symbol
+name_cr="37" #color of user & host
+end_cr="37" #color of prompt end
+dir_cr="36" #color of current directory
+
+PS1='\[\e[0;${bar_cr}m\]
+┌──(\[\e[1;${name_cr}m\]${user}\[\e[1;${sym_cr}m\]${sym}\[\e[1;${name_cr}m\]${hostname}\[\e[0;${bar_cr}m\])-[\[\e[0;${dir_cr}m\]\w\[\e[0;${bar_cr}m\]]
+└─\[\e[1;${end_cr}m\]\$\[\e[0m\] '
+
+eval "$(starship init bash)"
+#### Display ########################
+clear
+# print system info with fastfetch
+# function welcome_sysinfo () {
+# 	if hash fastfetch 2>/dev/null; then
+# 		fastfetch	-c ~/.config/fastfetch/termStart
+# 	fi
+# }
+#
+# if [[ $- == *i* ]]; then
+#     welcome_sysinfo
+# fi
+#
+#EOF
+
+set -o vi
+# Track vi mode in a variable for Starship
+__update_keymap() {
+  local keymap
+  keymap=$(bind -v | grep 'set keymap' | awk '{print $3}')
+  export KEYMAP="$keymap"
+}
+
+# Run the hook before each prompt
+PROMPT_COMMAND="__update_keymap; $PROMPT_COMMAND"
