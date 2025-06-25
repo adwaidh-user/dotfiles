@@ -182,6 +182,6 @@ alias dotfiles='cd $HOME/.dotfiles/'
 
 # on startup
 clear
-pokemon-colorscripts -n darkrai --no-title
+pokemon-colorscripts -n gengar --no-title
 echo 
 
