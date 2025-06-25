@@ -50,6 +50,7 @@
 #idle_inhibitor {
     color: #fff;
     border-color: #fff;
+    border-style: solid;
 }
 #power-profiles-daemon.performance {
     background-color: #e64d10;

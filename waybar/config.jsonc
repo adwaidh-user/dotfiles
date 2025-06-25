@@ -25,7 +25,6 @@
         "memory",
         "temperature",
         "backlight",
-        "keyboard-state",
         "sway/language",
         "battery",
         "battery#bat2",
@@ -71,15 +70,6 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -178,10 +168,10 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": " :{bandwidthUpBytes}][ :{bandwidthDownBytes}",
+        "tooltip-format": "{ifname} via {gwaddr} "
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -208,7 +198,7 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "custom/power": {
-        "format" : "⏻",
+        "format" : "",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
