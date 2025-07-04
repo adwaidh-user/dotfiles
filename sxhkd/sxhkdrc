@@ -49,6 +49,12 @@ XF86AudioStop
 XF86Launch1
     kitty
 
+# screenshot
+Print
+    flameshot full -p $HOME/Pictures/Screenshot
+
+alt + Print
+    flameshot gui -p $HOME/Pictures/Screenshot
 # bspwm hotkeys
 # ===========================
 
