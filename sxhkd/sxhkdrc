@@ -11,7 +11,7 @@ super + {b,e}
 
 # reload sxhkd config
 super + Escape
-    pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded Config'
 
 super + {_,shift +}q
     systemctl {poweroff, reboot} --now
@@ -46,6 +46,9 @@ XF86AudioPrev
 XF86AudioStop 
     playerctl stop
 
+XF86PowerOff
+    systemctl suspend
+
 XF86Launch1
     kitty
 
@@ -60,7 +63,7 @@ alt + Print
 
 # quit / restart bspwm
 super + alt + {q,r}
-    bspc {quit, wm -r}
+    bspc {quit, wm -r; notify-send 'bspwm' 'Restarted bspwm'}
 
 # close / kill
 alt + {_,shift + }q
