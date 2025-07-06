@@ -1,10 +1,10 @@
 #!/usr/bin/sh
 
 sxhkd &
-feh --bg-fill $HOME/.dotfiles/Pictures/star-wars-ascii.jpg &
-picom --config $HOME/.dotfiles/picom/picom.conf &
+feh --bg-fill $WALLPAPER &
+picom --config $DOT_DIR/picom/picom.conf &
 dunst &
-$HOME/.dotfiles/polybar/launch.sh
+$DOT_DIR/polybar/launch.sh
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 

@@ -1,5 +1,3 @@
-source prompt.zsh
-
 edit-conf () {
     # Checking argument is provided
     if [[ -z "$1" || $# -gt 2 ]]; then
