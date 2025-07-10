@@ -5,7 +5,7 @@
 polybar-msg cmd quit || killall -q polybar
 # Otherwise you can use the nuclear option:
 # killall -q polybar
-BARS=(workspaces window utils)
+BARS=(workspaces time utils)
 
 # Launch bar1 and bar2
 for bar in "${BARS[@]}"; do
