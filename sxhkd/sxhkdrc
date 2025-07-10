@@ -1,13 +1,16 @@
 # wm independent shortcuts
 # ===========================
 super + Return
-    kitty
+    $TERMINAL
 
 super + d
     rofi -show drun
 
-super + {b,e}
-    {firefox, nautilus}
+super + b
+    $BROWSER
+
+super + {_,shift + }e
+    {$FILE_MANAGER,$TERMINAL -e $TUI_FILE_MANAGER}
 
 # reload sxhkd config
 super + Escape
@@ -26,7 +29,7 @@ XF86AudioLowerVolume
 XF86AudioMute 
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 XF86AudioMicMute 
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    exec $DOT_DIR/scripts/mic-led-toggle.sh;
 
 # brightness (brightnessctl)
 XF86MonBrightnessDown 
@@ -46,11 +49,14 @@ XF86AudioPrev
 XF86AudioStop 
     playerctl stop
 
+# Power
 XF86PowerOff
     systemctl suspend
-
+# Launch Key
 XF86Launch1
-    kitty
+    $TERMINAL -e btop
+XF86TouchpadToggle
+    exec $DOT_DIR/scripts/touchpad-toggle.sh
 
 # screenshot
 Print
@@ -127,11 +133,11 @@ super + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward
-super + alt + {a,s,w,d}
+super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {a,s,w,d}
+super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
