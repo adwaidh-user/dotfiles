@@ -84,3 +84,4 @@ done
 
 # on startup
 clear
+fastfetch --config examples/10.jsonc
