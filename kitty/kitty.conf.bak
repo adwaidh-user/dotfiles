@@ -1,178 +1,75 @@
 #: Fonts 
 
-font_family      FiraCode Nerd Font
+font_family      JetBrainsMono Nerd Font
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
 
 #: font size (in pts)
-
 font_size 11.0
-
-# force left to right text
-
 force_ltr no
-
-#: Enable alternate zero and oldstyle numerals::
-
-# font_features FiraCode-Retina +zero +onum
-
-#: Enable only alternate zero in the bold font::
-
-# font_features FiraCode-Bold +zero
-
-#: Modify font characteristics such as the position or thickness of
-#: the underline and strikethrough. The modifications can have the
-#: suffix px for pixels or % for percentage of original value. No
-#: suffix means use pts. For example::
+# font_features <font_name> [+feature]
 
 # modify_font underline_position -2
 # modify_font underline_thickness 150%
 # modify_font strikethrough_position 2px
 
-#: Additionally, you can modify the size of the cell in which each
-#: font glyph is rendered and the baseline at which the glyph is
-#: placed in the cell. For example::
-
 # modify_font cell_width 80%
 # modify_font cell_height -2px
 # modify_font baseline 3
 
-#cursor settings
+# -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+#: CURSOR SETTINGS
 
 cursor #cccccc
-#: Default text cursor color.
 cursor_text_color #111111
-#: The color of text under the cursor
 cursor_shape block
-#: block, beam, underline
 cursor_shape_unfocused hollow
-#: block, beam, underline, hollow, unchanged
 cursor_beam_thickness 1.5
-#: only for beam (in pts)
 cursor_blink_interval -1
-#: interval between cursor blinking ( in seconds )
 cursor_stop_blinking_after 15.0
-#: ( in seconds ) set to 0 to never stop blinking
 cursor_trail 0
-#: Set this to a value larger than zero to enable a "cursor trail"
-#: animation. This is an animation that shows a "trail" following the
-#: movement of the text cursor.
 cursor_trail_decay 0.1 0.4
-#: Controls the decay times for the cursor trail effect when the
-#: cursor_trail is enabled. This option accepts two positive float
-#: values specifying the fastest and slowest decay times in seconds.
-#: The first value corresponds to the fastest decay time (minimum),
-#: and the second value corresponds to the slowest decay time (maximum).
 cursor_trail_start_threshold 2
-#: Set the distance threshold for starting the cursor trail. This
-#: option accepts a positive integer value that represents the minimum
-#: number of cells the cursor must move before the trail is started.
-#: When the cursor moves less than this threshold, the trail is
-#: skipped, reducing unnecessary cursor trail animation.
 
-#: Terminal bell
+# -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+#: TERMINAL BELL
 
 enable_audio_bell yes
-
 visual_bell_duration 0.0
-#: The visual bell duration (in seconds). Flash the screen when a bell
-#: occurs for the specified number of seconds. Set to zero to disable.
-#: The flash is animated, fading in and out over the specified
-#: duration. The easing function used for the fading can be
-#: controlled. For example, 2.0 linear will casuse the flash to fade
-#: in and out linearly. The default if unspecified is to use ease-in-
-#: out which fades slowly at the start, middle and end.
 visual_bell_color none
-#: The color used by visual bell. Set to none will fall back to
-#: selection background color. If you feel that the visual bell is too
-#: bright, you can set it to a darker color.
 window_alert_on_bell yes
-#: Request window attention on bell. Makes the dock icon bounce on macOS or the taskbar flash on Linux.
 bell_on_tab "🔔 "
-#: Some text or a Unicode symbol to show on the tab if a window in the
-#: tab that does not have focus has a bell. If you want to use leading
-#: or trailing spaces, surround the text with quotes. See
-#: tab_title_template for how this is rendered.
-#: For backwards compatibility, values of yes, y and true are
-#: converted to the default bell symbol and no, n, false and none are
-#: converted to the empty string.
-
 command_on_bell none
-#: Program to run when a bell occurs. The environment variable
-#: KITTY_CHILD_CMDLINE can be used to get the program running in the window in which the bell occurred.
 bell_path none
-#: Path to a sound file to play as the bell sound. If set to none, the
-#: system default bell sound is used. Must be in a format supported by
-#: the operating systems sound API, such as WAV or OGA on Linux
-#: (libcanberra) or AIFF, MP3 or WAV on macOS (NSSound).
 linux_bell_theme __custom
-#: The XDG Sound Theme kitty will use to play the bell sound. Defaults
-#: to the custom theme name specified in the XDG Sound theme
-#: specification <https://specifications.freedesktop.org/sound-theme-
-#: spec/latest/sound_lookup.html>, falling back to the default
-#: freedesktop theme if it does not exist. To change your sound theme
-#: desktop wide, create
-#: :file:~/.local/share/sounds/__custom/index.theme` with the
-#: contents:
 
-#:     [Sound Theme]
-
-#:     Inherits=name-of-the-sound-theme-you-want-to-use
-
-#: Replace name-of-the-sound-theme-you-want-to-use with the actual
-#: theme name. Now all compliant applications should use sounds from
-#: this theme.
+# -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
 
 # Window layout
 
 remember_window_size no
-initial_window_width 1120
-initial_window_height 640
+initial_window_width 1200
+initial_window_height 680
 
 enabled_layouts *
-#: comma separated list of layout names.
 #: The first listed layout will be used as the startup layout.
 #: <https://sw.kovidgoyal.net/kitty/overview/#layouts>.
+
 window_resize_step_cells 2
 window_resize_step_lines 2
 #: The step size (in units of cell width/cell height) to use when
 #: resizing kitty windows in a layout with the shortcut
 #: start_resizing_window. The cells value is used for horizontal
 #: resizing, and the lines value is used for vertical resizing.
-window_border_width 0.5pt
-#: The width of window borders. Can be either in pixels (px) or pts
-#: (pt). Values in pts will be rounded to the nearest number of pixels
-#: based on screen resolution. If not specified, the unit is assumed
-#: to be pts. Note that borders are displayed only when more than one
-#: window is visible. They are meant to separate multiple windows.
+window_border_width 0.8pt
 draw_minimal_borders yes
-#: Draw only the minimum borders needed. This means that only the
-#: borders that separate the window from a neighbor are drawn. Note
-#: that setting a non-zero window_margin_width overrides this and
-#: causes all borders to be drawn.
-window_margin_width 0
-#: The window margin (in pts) (blank area outside the border). A
-#: single value sets all four sides. Two values set the vertical and
-#: horizontal sides. Three values set top, horizontal and bottom. Four
-#: values set top, right, bottom and left.
+window_margin_width 4
 single_window_margin_width -1
-#: The window margin to use when only a single window is visible (in
-#: pts). Negative values will cause the value of window_margin_width
-#: to be used instead. A single value sets all four sides. Two values
-#: set the vertical and horizontal sides. Three values set top,
-#: horizontal and bottom. Four values set top, right, bottom and left.
-window_padding_width 0
-#: The window padding (in pts) (blank area between the text and the
-#: window border). A single value sets all four sides. Two values set
-#: the vertical and horizontal sides. Three values set top, horizontal
-#: and bottom. Four values set top, right, bottom and left.
+window_padding_width 3
 single_window_padding_width -1
-#: The window padding to use when only a single window is visible (in
-#: pts). Negative values will cause the value of window_padding_width
-#: to be used instead. A single value sets all four sides. Two values
-#: set the vertical and horizontal sides. Three values set top,
-#: horizontal and bottom. Four values set top, right, bottom and left.
 placement_strategy center
 #: When the window size is not an exact multiple of the cell size, the
 #: cell area of the terminal window will have some extra padding on
@@ -183,16 +80,9 @@ placement_strategy center
 #: left, top, top-right, left, center, right, bottom-left, bottom,
 #: bottom-right.
 active_border_color #00ff00
-#: The color for the border of the active window. Set this to none to
-#: not draw borders around the active window.
 inactive_border_color #cccccc
-#: The color for the border of inactive windows.
 bell_border_color #ff5a00
-#: The color for the border of inactive windows in which a bell has
-#: occurred.
 inactive_text_alpha 1.0
-#: Fade the text in inactive windows by the specified amount (a number
-#: between zero and one, with zero being fully faded).
 hide_window_decorations no
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only and titlebar-and-corners can be used
@@ -212,9 +102,7 @@ window_logo_path none
 #: launch action or the remote control
 #: <https://sw.kovidgoyal.net/kitty/remote-control/> facility.
 window_logo_position bottom-right
-#: Where to position the window logo in the window. The value can be
-#: one of: top-left, top, top-right, left, center, right, bottom-left,
-#: bottom, bottom-right.
+#: one of: top-left, top, top-right, left, center, right, bottom-left, bottom, bottom-right.
 window_logo_alpha 0.5
 #: The amount the logo should be faded into the background. With zero
 #: being fully faded and one being fully opaque.
@@ -266,13 +154,12 @@ confirm_os_window_close -1
 #: close_window_with_confirmation action.
 
 # Color scheme
+# foreground #dddddd
+# background #000000
 
-foreground #dddddd
-background #000000
-
-background_opacity 1
+background_opacity 0.9
 background_blur 1
-# background_image /home/adwaidh-user/Pictures/JinSakai.jpg
+background_image $HOME/.dotfiles/Pictures/zoroark.jpg
 
 # tab bar
 
@@ -288,24 +175,33 @@ tab_bar_min_tabs 2
 tab_switch_strategy previous
 tab_separator " ┇"
 tab_powerline_style angled
-# angled, slanted,, round
-tab_activity_symbol none
+tab_activity_symbol *
 
 #: Template to use for active tabs. If not specified falls back to
 #: tab_title_template.
-
-active_tab_foreground   #000
-active_tab_background   #eee
+# active_tab_foreground   #000
+# active_tab_background   #eee
 active_tab_font_style   bold-italic
-inactive_tab_foreground #444
-inactive_tab_background #999
+# inactive_tab_foreground #444
+# inactive_tab_background #999
 inactive_tab_font_style normal
 
 #: Tab bar colors and styles.
-
-tab_bar_background none
+# tab_bar_background none
 
 # KeyMaps
 map ctrl+shift+t new_tab_with_cwd
 map ctrl+shift+n launch --cwd=current --type=os-window
 map ctrl+shift+enter new_window_with_cwd
+
+map ctrl+alt+t goto_layout tall
+map ctrl+alt+s goto_layout split
+map ctrl+alt+S goto_layout stack
+map ctrl+alt+g goto_layout grid
+
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME
+
