@@ -9,7 +9,7 @@ pactl set-source-mute @DEFAULT_SOURCE@ toggle
 CURR_MUTE_STATE=$(pactl get-source-mute @DEFAULT_SOURCE@ | awk '{print $2}')
 
 if [[ "$CURR_MUTE_STATE" == "yes" ]]; then
-    echo 1 | tee /sys/class/leds/platform::micmute/brightness
+    brightnessctl -d platform::micmute set 1
 else
-    echo 0 | tee /sys/class/leds/platform::micmute/brightness
+    brightnessctl -d platform::micmute set 0
 fi
