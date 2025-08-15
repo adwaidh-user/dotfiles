@@ -63,6 +63,7 @@ return {
             })
             lspconfig.pyright.setup({
                 capabilities = capabilities,
+                filetypes = { "py" },
             })
         end,
     },
