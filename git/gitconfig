@@ -1,0 +1,18 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	name = adwaidh-user
+	email = adwaith3105@gmail.com
+[alias]
+	s = status
+    ls = log --pretty=oneline --graph
+    tree = log --graph
+    br = branch
+    co = checkout
+    cm = commit -m
+[init]
+	defaultBranch = main
