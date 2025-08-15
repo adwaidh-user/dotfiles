@@ -1,5 +1,5 @@
 *  {
-    font-family: "Anta";
+    font-family: "JetBrainsMono Nerd Font";
     font-size: 14px;
     border-radius: 0;
     min-height: 0;
@@ -9,8 +9,37 @@
 
 #workspaces {
     background-color: rgba(24,24,37,1.0);
-    border: none;
+    border: 2px solid #cdd6f4;
+    border-radius: 6px;
     box-shadow: none;
+    padding: 4px 6px;
+    margin: 4px 0px;
+}
+
+#workspaces button {
+    all: initial;
+    /* Remove GTK theme values (waybar #1351) */
+    min-width: 0;
+    /* Fix weird spacing in materia (waybar #450) */
+    box-shadow: inset 0 -3px transparent;
+    /* Use box-shadow instead of border so the text isn't offset */
+    padding: 2px 4px;
+    margin: 0 4px;
+    border-radius: 4px;
+    background-color: rgba(36, 36, 52, 1.0);
+    color: #cdd6f4;
+}
+
+#workspaces button.active {
+    color: #1e1e2e;
+    background-color: #cdd6f4;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: #1e1e2e;
+    background-color: #cdd6f4;
 }
 
 #tray {
@@ -30,7 +59,7 @@
 #window,
 #bluetooth,
 #idle_inhibitor,
-#pulseaudio,
+#wireplumber,
 #power-profiles-daemon,
 #cpu,
 #memory,
@@ -40,89 +69,69 @@
 #battery,
 #clock,
 #custom-power {
-    border-radius: 4px;
-    margin: 6px 0px;
-    padding: 6px 12px;
-    background-color: #1e1e2e;
-    color: #181825;
+    border-radius: 6px;
+    margin: 4px 0px;
+    padding: 4px 11px;
 }
 
-#idle_inhibitor {
-    color: #fff;
-    border-color: #fff;
-    border-style: solid;
-}
-#power-profiles-daemon.performance {
-    background-color: #e64d10;
-}
-#power-profiles-daemon.balanced {
-    background-color: #1a80ed;
-}
-#power-profiles-daemon.power-saver {
-    background-color: #1ee342;
-}
 #clock  {
-    background-color: #89b4fa;
+    background-color: #1e1e2e;
+    color: #89b4fa;
+    border: 2px solid #89b4fa;
 }
 #custom-power {
-    background-color: #ff0000;
+    background-color: #1e1e2e;
+    color: #ff0000;
+    border: 2px solid #ff0000;
 }
 #bluetooth {
-    background-color: #f9e2af;
+    background-color: #1e1e2e;
+    color: #f9e2af;
+    border: 2px solid #f9e2af;
 }
 #battery {
-    background-color: #cba6f7;
+    background-color: #1e1e2e;
+    color: #cba6f7;
+    border: 2px solid #cba6f7;
 }
-#pulseaudio {
-    background-color: #89dceb;
+#wireplumber {
+    background-color: #1e1e2e;
+    color: #89dceb;
+    border: 2px solid #89dceb;
 }
 #backlight {
-    background-color: #a6a3a1;
+    background-color: #1e1e2e;
+    color: #a6a3a1;
+    border: 2px solid #a6a3a1;
 }
 #temperature {
-    background-color: #74c7ec;
+    background-color: #1e1e2e;
+    color: #74c7ec;
+    border: 2px solid #74c7ec;
 }
 #memory {
-    background-color: #f7768e;
+    background-color: #1e1e2e;
+    color: #f7768e;
+    border: 2px solid #f7768e;
 }
 #cpu {
-    background-color: #f38ba8;
+    background-color: #1e1e2e;
+    color: #f38ba8;
+    border: 2px solid #f38ba8;
 }
 #network {
-    background-color: #fab387;
+    background-color: #1e1e2e;
+    color: #fab387;
+    border: 2px solid #fab387;
 }
 #window {
-    background-color: #74c7ec;
+    background-color: #1e1e2e;
+    color: #74c7ec;
+    border: 2px solid #74c7ec;
 }
 
 #waybar.hidden {
     opacity: 0.5;
-}
-
-#workspaces button {
-    all: initial;
-    /* Remove GTK theme values (waybar #1351) */
-    min-width: 0;
-    /* Fix weird spacing in materia (waybar #450) */
-    box-shadow: inset 0 -3px transparent;
-    /* Use box-shadow instead of border so the text isn't offset */
-    padding: 6px 18px;
-    margin: 6px 3px;
-    border-radius: 4px;
-    background-color: rgba(36, 36, 52, 1.0);
-    color: #cdd6f4;
-}
-
-#workspaces button.active {
-    color: #1e1e2e;
-    background-color: #cdd6f4;
-}
-
-#workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    color: #1e1e2e;
-    background-color: #cdd6f4;
 }
 
 tooltip {
