@@ -1,4 +1,4 @@
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/intelFPGA_lite/20.1/quartus/bin:$PATH"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -84,4 +84,6 @@ done
 
 # on startup
 clear
-fastfetch --config examples/10.jsonc
+fastfetch
+
+export QSYS_ROOTDIR="/home/acausr/intelFPGA_lite/24.1std/quartus/sopc_builder/bin"
