@@ -11,11 +11,8 @@ return {
             sources = {
                 -- formatting
                 null_ls.builtins.formatting.stylua,
-                null_ls.builtins.formatting.clang_format,
-                null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.prettier,
                 -- linting
-                null_ls.builtins.diagnostics.pylint,
             },
         })
     end,

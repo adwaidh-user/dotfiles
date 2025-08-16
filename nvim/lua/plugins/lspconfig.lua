@@ -19,6 +19,7 @@ return {
             local lspconfig = require("lspconfig")
             capabilities.offsetEncoding = { "utf-16" }
 
+            -- Handlers for searvers installed via Mason
             require("mason-lspconfig").setup({
                 automatic_installation = true,
                 handlers = {
@@ -34,18 +35,14 @@ return {
                         lspconfig.lua_ls.setup({
                             capabilities = capabilities,
                             settings = {
-                                Lua = {
-                                    diagnostics = {
-                                        globals = { "vim" },
-                                    },
-                                },
+                                Lua = { diagnostics = { globals = { "vim" }, }, },
                             },
                             filetypes = { "lua" },
                         })
                     end,
                 },
             })
-            -- Custom handlers for ervers installed locally and not by mson
+            -- Custom handlers for servers installed locally
             lspconfig.clangd.setup({
                 capabilities = capabilities,
                 cmd = {
@@ -60,10 +57,30 @@ return {
                     "--pch-storage=memory",
                 },
                 filetypes = { "c", "cpp", "objc", "objcpp" },
+                on_attach = function (client, bufnr)
+                    if client.server_capabilities.documentFormattingProvider then
+                        vim.api.nvim_create_autocmd("BufWritePre", {
+                            buffer = bufnr,
+                            callback = function ()
+                                vim.lsp.buf.format({async = false})
+                            end
+                        })
+                    end
+                end,
             })
-            lspconfig.pyright.setup({
+            lspconfig.ruff.setup({
                 capabilities = capabilities,
-                filetypes = { "py" },
+                filetypes = { "python" },
+                on_attach = function (client, bufnr)
+                    if client.server_capabilities.documentFormattingProvider then
+                        vim.api.nvim_create_autocmd("BufWritePre", {
+                            buffer = bufnr,
+                            callback = function ()
+                                vim.lsp.buf.format({async = false})
+                            end
+                        })
+                    end
+                end,
             })
         end,
     },
