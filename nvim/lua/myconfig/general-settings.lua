@@ -25,4 +25,4 @@ o.wrap = false							--When on, lines longer than the width of the window will w
 o.splitright = true
 o.splitbelow = false
 o.termguicolors = true
-o.scrolloff = 200
+o.scrolloff = 15
