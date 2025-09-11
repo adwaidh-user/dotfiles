@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=NITC Eduserver
+Exec=librewolf https://eduserver.nitc.ac.in
+# Icon=moodle
+Terminal=false
+Type=Application
+Categories=Network;Education;
+StartupWMClass=Moodle
+

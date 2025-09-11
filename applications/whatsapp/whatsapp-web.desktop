@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=WhatsApp Web
+Comment=Use WhatsApp in your web browser
+Exec=xdg-open https://web.whatsapp.com
+# Icon=whatsapp
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;WebBrowser;
+StartupWMClass=WhatsApp Web
+

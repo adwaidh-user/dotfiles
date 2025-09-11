@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=qbittorret
+GenericName=Torrent Downloader
+Exec=/home/acausr/Applications/qbittorrent/qbittorrent-5.1.2_x86_64.AppImage
+Icon=/home/acausr/Applications/qbittorrent/qbittorrent.svg
+Terminal=false
+Categories=Utility;
+Comment=Utility for torrent downloads
