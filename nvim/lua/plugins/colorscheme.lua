@@ -114,4 +114,4 @@ local kanagawa = {
     end,
 }
 
-return kanagawa
+return tokyonight
