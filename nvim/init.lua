@@ -1,3 +1,4 @@
-require("myconfig.general-settings")
-require("myconfig.keymaps")
-require("myconfig.lazy")
+require("config.general-settings")
+require("config.keymaps")
+require("core.lazy")
+require("core.lsp")
