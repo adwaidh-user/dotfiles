@@ -5,32 +5,7 @@ return {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
-		dashboard = {
-			enabled = true,
-			preset = {
-				-- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
-				---@type fun(cmd:string, opts:table)|nil
-				pick = nil,
-				---@type snacks.dashboard.Item[]
-				keys = {
-					{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-					{ icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')", },
-					{ icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')", },
-					{ icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})", },
-					{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
-					{ icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil, },
-					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
-				},
-				header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-			},
-		},
+		dashboard = { enabled = true },
 		indent = { enabled = true },
 		notifier = { enabled = true, timeout = 3000 },
 		picker = { enabled = true },
