@@ -55,6 +55,7 @@
     background-color: #181825;
     transition-property: background-color;
     transition-duration: 0.5s;
+    border-radius: 3px;
 }
 
 #window,
