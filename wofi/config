@@ -1,13 +1,21 @@
-width=600
-height=400
-mode=drun,run
-show=run
-colors=colors
-filter_rate=100
+#style = ~/.config/wofi/style.css
+
+width=750
+location=center
+show=drun
+prompt=Search Apps
 allow_markup=true
-allow_images=true
+term=kitty
+insensitive=true
+matching=contains
+filter_rate=100
 no_actions=true
-halign=fill
+
 orientation=vertical
+halign=fill
 content_halign=fill
-drun-display_generic=true
+allow_images=true
+image_size=40
+
+layer=top
+use_search_box=true
