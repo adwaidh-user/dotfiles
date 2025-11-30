@@ -1,5 +1,4 @@
 return {
-	capabilities = capabilities,
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -11,7 +10,7 @@ return {
 		"--enable-config",
 		"--pch-storage=memory",
 	},
-	filetypes = { "c", "cpp", "objc", "objcpp" },
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 	on_attach = function(client, bufnr)
 		if client.server_capabilities.documentformattingprovider then
 			vim.api.nvim_create_autocmd("bufwritepre", {
@@ -22,4 +21,13 @@ return {
 			})
 		end
 	end,
+	root_markers = {
+		".clangd",
+		".clang-tidy",
+		".clang-format",
+		"compile_commands.json",
+		"compile_flags.txt",
+		"configure.ac",
+		".git",
+	},
 }

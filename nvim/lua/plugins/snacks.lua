@@ -25,6 +25,7 @@ return {
 		-- find
 		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers", },
 		{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files", },
+    { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File", },
 		{ "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects", },
 		{ "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent", },
 	  -- git
@@ -53,21 +54,22 @@ return {
 		{ "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History", },
 		{ "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes", },
 		-- LSP
-		{ "<leader>lr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References", },
-		{ "<leader>lI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation", },
-		{ "<leader>ly", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition", },
-		{ "<leader>ls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols", },
-		{ "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols", },
+		{ "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References", },
+		{ "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation", },
+		{ "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition", },
+		{ "gs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols", },
+		{ "gS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols", },
+    -- Buffer
+		{ "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
+		{ "<leader>bD", function() Snacks.bufdelete.All() end, desc = "Delete All Buffer", },
+		{ "<leader>br", function() Snacks.rename.rename_file() end, desc = "Rename Buffer", },
 		-- Other
 		{ "<leader>z", function() Snacks.zen() end, desc = "Toggle Zen Mode", },
 		{ "<leader>Z", function() Snacks.zen.zoom() end, desc = "Toggle Zoom", },
 		{ "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer", },
 		{ "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer", },
-		{ "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
-		{ "<leader>bR", function() Snacks.rename.rename_file() end, desc = "Rename File", },
 		{ "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications", },
 		{ "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal", },
-		{ "<c-_>", function() Snacks.terminal() end, desc = "which_key_ignore", },
 	},
 	init = function()
 		vim.api.nvim_create_autocmd("User", {

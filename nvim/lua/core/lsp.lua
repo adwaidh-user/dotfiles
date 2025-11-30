@@ -1,22 +1,27 @@
-vim.lsp.enable({
-	"clangd",
-	"lua_ls",
-	"ruff",
-	"pyright",
-	"eslint-lsp",
-})
+vim.lsp.enable("clangd")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("ruff")
+vim.lsp.enable("ts_ls")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
-		local bufnr = ev.buf
-		local opts = { buffer = bufnr }
+    local opts = { buffer = ev.buf }
 
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "<leader>lD", vim.lsp.buf.declaration, opts)
+    opts.desc = "Show hower info"
+		vim.keymap.set("n", "gk", vim.lsp.buf.hover, opts)
+
+    opts.desc = "Show LSP definition"
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+
+    opts.desc = "Go to declaration"
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+
+    opts.desc = "Show available code actions"
 		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, opts)
-	end,
+
+    opts.desc = "Format"
+		vim.keymap.set("n", "gf", vim.lsp.buf.format, opts)
+  end,
 })
 
 vim.diagnostic.config({
