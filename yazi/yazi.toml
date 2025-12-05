@@ -98,7 +98,7 @@ spotters = [
 	# Fallback
 	{ name = "*", run = "file" },
 ]
-preloaders = [
+prepend_preloaders = [
 	# Image
 	{ mime = "image/{avif,hei?,jxl}", run = "magick" },
 	{ mime = "image/svg+xml", run = "svg" },
@@ -111,7 +111,7 @@ preloaders = [
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/ms-opentype", run = "font" },
 ]
-previewers = [
+prepend_previewers = [
 	{ name = "*/", run = "folder" },
 	# Code
 	{ mime = "text/*", run = "code" },
