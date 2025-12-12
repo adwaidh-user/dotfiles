@@ -8,6 +8,11 @@ use = "yazi-rs/plugins:mount"
 rev = "19dc890"
 hash = "4fccaaf10c36dc2466e2438a386ff017"
 
+[[plugin.deps]]
+use = "boydaihungst/restore"
+rev = "6395e52"
+hash = "f107436db5d2cccccc11ab54bc97b761"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "3edeb49"

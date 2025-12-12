@@ -1,6 +1,13 @@
 [mgr]
 prepend_keymap = [
+  # Jump to trash folder
+  { on = [ "g", "t" ], run = "cd ~/.local/share/Trash", desc = "Go Trash" },
   # Mounting (mount.yazi)
   { on = "M", run = "plugin mount", desc = "Show partitions and mount points" },
+  # restore files (restore.yazi)
+  { on = [ "d", "d" ], run = "remove", desc = "Trash selected files" },
+  { on = [ "d", "u" ], run = "plugin restore", desc = "Restore trashed files" },
+  { on = [ "d", "U" ], run = "plugin restore -- --interactive", desc = "Restore trashed files (interactive)" },
+  { on = [ "g", "t" ], run = "cd ~/.local/share/Trash", desc = "Go Trash" },
 ]
 
