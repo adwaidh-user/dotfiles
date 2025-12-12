@@ -23,9 +23,7 @@ extract = [
 ]
 play = [
   { run = 'DRI_PRIME=1 mpv --hwdec=nvdec --force-window=yes "$@"', desc = "mpv NVIDIA", orphan = true, for = "unix" },
-  { run = 'DRI_PRIME=1 LIBVA_DRIVER_NAME=nvidia vlc "$@"', desc = "vlc NVIDIA", orphan = true, for = "unix" },
   { run = 'mpv --hwdec=auto --force-window=yes "$@"', desc = "mpv iGPU", orphan = true, for = "unix" },
-  { run = 'LIBVA_DRIVER_NAME=iHD vlc "$@"', desc = "vlc iGPU", orphan = true, for = "unix" },
   { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 
