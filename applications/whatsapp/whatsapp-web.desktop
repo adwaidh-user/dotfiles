@@ -2,7 +2,7 @@
 Name=WhatsApp Web
 Comment=Use WhatsApp in your web browser
 Exec=xdg-open https://web.whatsapp.com
-# Icon=whatsapp
+Icon=whatsapp.svg
 Terminal=false
 Type=Application
 Categories=Network;InstantMessaging;WebBrowser;

@@ -1,41 +1,21 @@
-# Set to "random" to load random theme
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="agnoster"
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
-
 # DISABLE_LS_COLORS="true"
 # DISABLE_AUTO_TITLE="true"
 # ENABLE_CORRECTION="true"
-
 # HIST_STAMPS="mm/dd/yyyy"
-
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(git autoupdate zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# ===========================================
-# USER CONFIGURATION
-# ===========================================
-
-export EDITOR='nvim'
-
-# ----------------------------------------
-# Key bindings
-#
+# =========================================
+# Key Bindings
+# =========================================
 bindkey -v  # enable vi mode
 
 
@@ -61,7 +41,3 @@ zle -N zle-keymap-select starship_vi_mode_fix
 for file in ~/.dotfiles/zsh/shell_config/*; do
     source $file
 done
-
-# on startup
-clear
-fastfetch

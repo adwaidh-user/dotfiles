@@ -2,6 +2,6 @@
 Type=Application
 Name=GitHub
 Exec=xdg-open https://github.com/
-Icon=/home/acausr/Applications/GitHub/github-mark/github-mark.png
+Icon=Github.svg
 Terminal=false
 Categories=Utility;Web;

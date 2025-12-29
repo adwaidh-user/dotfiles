@@ -8,6 +8,7 @@
   "modules-left": ["custom/power", "hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": [
+    "tray",
     "backlight",
     "wireplumber",
     "network",
@@ -114,6 +115,9 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down",
     },
+  },
+  "tray": {
+    "icon-size": 21,
   },
   "custom/power": {
     "format": " ",

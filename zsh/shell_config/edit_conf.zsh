@@ -7,12 +7,13 @@ edit-conf () {
 
     if [[ -d "$DOT_DIR/$1" ]]; then
         cd "$DOT_DIR/$1"
+        $EDITOR "$DOT_DIR/$1"
     else
         prompt -i "Configuration directory not found in $DOT_DIR for '$1'."
         prompt -i "start a new config directory for '$1' ? [y/n] (default: n)"
         read MAKE_NEW_DIR
 
-        if [[ $MAKE_NEW_DIR == "y" ]]; then
+        if [[ $MAKE_NEW_DIR == "y" || $MAKE_NEW_DIR == "Y" ]]; then
             mkdir -p "$DOT_DIR/$1" && prompt -s "Made config directory for $1 at $DOT_DIR\n"
             cd "$DOT_DIR/$1"
         else
