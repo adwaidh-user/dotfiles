@@ -1,0 +1,3 @@
+[submodule "Pictures"]
+	path = Pictures
+	url = https://github.com/adwaidh-user/Pictures.git
