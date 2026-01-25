@@ -9,10 +9,12 @@
 	email = adwaith3105@gmail.com
 [alias]
 	s = status
-    ls = log --pretty=oneline --graph
-    tree = log --graph
-    br = branch
-    co = checkout
-    cm = commit -m
+  ls = log --pretty=oneline --graph
+  tree = log --graph
+  br = branch
+  co = checkout
+  cm = commit -m
+  P = pull
+  p = push
 [init]
 	defaultBranch = main
