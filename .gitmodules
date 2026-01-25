@@ -1,3 +1,6 @@
 [submodule "Pictures"]
 	path = Pictures
 	url = https://github.com/adwaidh-user/Pictures.git
+[submodule "nvim-config"]
+	path = nvim-config
+	url = git@github.com:adwaidh-user/nvim-config.git
