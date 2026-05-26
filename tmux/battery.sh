@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CHARGE=$( cat /sys/class/power_supply/BAT1/capacity 2>/dev/null )
-STATUS=$( cat /sys/class/power_supply/BAT1/capacity 2>/dev/null )
+STATUS=$( cat /sys/class/power_supply/BAT1/status 2>/dev/null )
 
 case "$STATUS" in
   "Charging") ICON="󱐋"

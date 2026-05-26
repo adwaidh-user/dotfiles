@@ -34,9 +34,9 @@ image_bound      = [ 0, 0 ]
 [plugin]
 prepend_fetchers = [
 	# Mimetype
-	{ id = "mime", name = "*", run = "mime", prio = "high" },
-  { id = "git", name = "*", run = "git"},
-  { id = "git", name = "*/", run = "git"},
+    { id = "mime", url = "*", run = "mime", prio = "high", group = "default" },
+    { id = "git", url = "*", run = "git", group = "default" },
+    { id = "git", url = "*/", run = "git", group = "default" } ,
 ]
 
 [input]

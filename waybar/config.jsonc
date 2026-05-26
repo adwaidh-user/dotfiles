@@ -59,13 +59,13 @@
   },
   "bluetooth": {
     "tooltip": true,
-    "format": " Connected ({num_connections})",
+    "format": " ({num_connections})",
     "format-on": " On",
     "format-off": "󰂲 Off",
     "format-disabled": "",
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format": "{controller_alias}\t| {controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t| {controller_address}\n-----------------------------------\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t| {device_address}",
   },
   "cpu": {
     "interval": 10,
@@ -98,6 +98,7 @@
   "clock": {
     "interval": 1,
     "format": "{:%H:%M:%S | %b %d, %Y}",
+    "format-alt": "{:%H:%M:%S | %b %d, %Y UTC}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode-mon-col": 4,
