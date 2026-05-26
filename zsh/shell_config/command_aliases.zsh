@@ -14,3 +14,4 @@ alias n='exec bash'
 alias c='clear'
 alias q='exit'
 
+alias cat='bat --paging=never'
