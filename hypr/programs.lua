@@ -7,7 +7,7 @@ return {
     fileManager = "nautilus",
     fileManager_tty = "yazi",
     browser = "zen-browser",
-    browser_private = "librewolf",
+    browser_private = "chromium",
     mail = "thunderbird",
     menu = "~/.dotfiles/rofi/Launcher/launcher.sh",
     powermenu = "~/.dotfiles/rofi/PowerMenu/powermenu.sh",

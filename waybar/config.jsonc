@@ -33,6 +33,7 @@
   "hyprland/window": {
     "icon": true,
     "format": "{class}",
+    "tooltip-format": "{title}",
   },
   "backlight": {
     "format": "{icon} {percent}%",
