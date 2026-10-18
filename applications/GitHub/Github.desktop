@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=GitHub
-Exec=xdg-open https://github.com/
-Icon=Github.svg
-Terminal=false
-Categories=Utility;Web;
