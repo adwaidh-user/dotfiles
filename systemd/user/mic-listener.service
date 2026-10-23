@@ -1,0 +1,11 @@
+[Unit]
+Description=Microphone Mute State Listener
+After=sound.target pipewire.service pulseaudio.service
+
+[Service]
+ExecStart=%h/.local/bin/mic_listener.sh
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=default.target
