@@ -58,7 +58,7 @@
   border-radius: 3px;
 }
 
-window#waybar.empty #window{
+window#waybar.empty #window {
   background-color: transparent;
   min-width: 0;
   opacity: 0;
@@ -153,4 +153,11 @@ menu {
   padding: 4px 4px 4px 10px;
   background: #1e1e2e;
   color: #f00;
+}
+
+#wireplumber.muted,
+#network.disabled,
+#bluetooth.off,
+#bluetooth.disabled {
+  background-color: #853242;
 }

@@ -5,79 +5,91 @@
   "width": 1912,
   "spacing": 4,
   "margin": 10,
-  "modules-left": ["custom/power", "hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
     "backlight",
-    "wireplumber",
+    "wireplumber#source",
+    "wireplumber#sink",
     "network",
     "bluetooth",
     "cpu",
     "memory",
-    "battery",
+    "battery"
   ],
   "hyprland/workspaces": {
+    "format": "{name}",
     "disable-scroll": true,
     "all-outputs": true,
     "warp-on-scroll": false,
     "show-special": true,
-    "format": "{name}",
-    "format-icons": {
-      "urgent": "",
-      "focused": "",
-      "default": "",
-      "magic": "🗇",
-    },
+    "tooltip": true,
+    "tooltips": {
+      "default": "{name}: {windows}"
+    }
   },
   "hyprland/window": {
     "icon": true,
     "format": "{class}",
-    "tooltip-format": "{title}",
+    "tooltip-format": "{title}"
   },
   "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": ["󰃞 ", "󰃝 ", "󰃟 ", "󰃠 "],
+    "format": "{icon}{percent}%",
+    "format-icons": ["󰃞 ", "󰃝 ", "󰃟 ", "󰃠 "]
   },
-  "wireplumber": {
-    "format": "{icon} {volume}%",
+  "wireplumber#sink": {
+    "format": "{icon}{volume}%",
     "format-muted": "󰝟 {volume}%",
-    "format-source": "{volume}%",
-    "format-source-muted": " {volume}%",
     "format-icons": {
-      "default": ["", " ", "󰕾", " "],
+      "default": [" ", " ", "󰕾 ", " "]
     },
-    "on-click": "pavucontrol",
-    "on-click-right": "helvum",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "󰍬 {volume}%",
+    "format-muted": " ",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "helvum"
   },
   "network": {
-    "format-wifi": "  {essid} ({signalStrength}%)",
-    "format-ethernet": " {ipaddr}/{cidr}",
+    "format-wifi": "  {essid} ",
+    "format-ethernet": " ",
     "format-linked": " {ifname} (No IP)",
-    "format-disconnected": "󰖪 --",
-    "format-alt": " :{bandwidthUpBytes}][ :{bandwidthDownBytes}",
+    "format-disconnected": "󰖪 ",
+    "format-disabled": "󰖪 ",
     "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{ipaddr}/{cidr}\n{ifname} via {gwaddr}\n{signalStrengthApp}{signalStrength}",
+    "tooltip-format-ethernet": " {ipaddr}",
+    "tooltip-format-linked": " {ifname} ({signalStrength})",
+    "tooltip-format-disconnected": "No-wifi-cry󰱬 ",
+    "tooltip-format-disabled": "WiFi off: press to toggle",
+
+    "on-click": "nmcli radio wifi | grep -q enabled && nmcli radio wifi off || nmcli radio wifi on"
   },
   "bluetooth": {
     "tooltip": true,
-    "format": " ({num_connections})",
-    "format-on": " On",
-    "format-off": "󰂲 Off",
-    "format-disabled": "",
+    "format": "󰂱 {num_connections}",
+    "format-on": "",
+    "format-off": "󰂲",
     "tooltip-format": "{controller_alias}\t| {controller_address}",
     "tooltip-format-connected": "{controller_alias}\t| {controller_address}\n-----------------------------------\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t| {device_address}",
+
+    "on-click": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
   },
   "cpu": {
     "interval": 10,
     "format": "  {usage}%",
-    "tooltip": true,
+    "tooltip": true
   },
   "memory": {
     "interval": 10,
     "format": "  {percentage}%",
     "tooltip": true,
-    "tooltip-format": "MEM: {used:0.1f}GiB ({percentage}%)\nSWAP: {swapUsed:0.1f}GiB ({swapPercentage}%)",
+    "tooltip-format": "MEM: {used:0.1f}GiB ({percentage}%)\nSWAP: {swapUsed:0.1f}GiB ({swapPercentage}%)"
   },
   "battery": {
     "bat": "BAT1",
@@ -86,7 +98,7 @@
     "states": {
       "good": 100,
       "warning": 40,
-      "critical": 15,
+      "critical": 15
     },
     "design-capacity": false,
     "format": "{icon} {capacity}%",
@@ -94,11 +106,11 @@
     "format-charging": "󱐋{icon} {capacity}% ",
     "format-plugged": "{icon} {capacity}%",
     "format-alt": "{time} {icon}",
-    "format-icons": ["󰁻", " 󰁽", "󰁿", "󰂁", "󰁹"],
+    "format-icons": ["󰁻", " 󰁽", "󰁿", "󰂁", "󰁹"]
   },
   "clock": {
     "interval": 1,
-    "format": "{:%H:%M:%S | %b %d, %Y}",
+    "format": "{:%H:%M:%S | %b %d}",
     "format-alt": "{:%H:%M:%S | %b %d, %Y UTC}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -109,17 +121,17 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#181825' background='#ff6699'><b>{}</b></span>",
-      },
+        "today": "<span color='#181825' background='#ff6699'><b>{}</b></span>"
+      }
     },
     "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-    },
+      "on-scroll-down": "shift_down"
+    }
   },
   "tray": {
-    "icon-size": 21,
+    "icon-size": 21
   },
   "custom/power": {
     "format": " ",
@@ -131,7 +143,7 @@
       "reboot": "systemctl reboot",
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate",
-      "logout": "hyprctl dispatch exit",
-    },
-  },
+      "logout": "hyprctl dispatch exit"
+    }
+  }
 }
