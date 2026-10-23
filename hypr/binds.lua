@@ -85,7 +85,7 @@ hl.bind(mainMod .. " + SHIFT + L",  hl.dsp.window.resize({ x = 15, y = 0, relati
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),  { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),       { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),      { locked = true })
-hl.bind("XF86AudioMicMute",     hl.dsp.exec_raw(os.getenv("HYPR_CONFIG_PATH") .. "mic-toggle.sh"),  { locked = true })
+hl.bind("XF86AudioMicMute",     hl.dsp.exec_raw("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),  { locked = true })
 hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -n1 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -n1 set 5%-"), { locked = true, repeating = true })
 
@@ -99,6 +99,7 @@ hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -n1 set 5%-"), { 
 -- end)
 
 hl.bind("Print", hl.dsp.exec_raw(os.getenv("ROFI_SCRIPT_PATH") .. "Screenshot/screenshot.sh"))
+hl.bind("SUPER + N",  hl.dsp.exec_cmd("makoctl dismiss -a"), { repeating = true })
 
 -- Requires playerctl
 -- hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
